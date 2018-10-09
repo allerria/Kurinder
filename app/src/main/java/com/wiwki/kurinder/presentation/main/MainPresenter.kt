@@ -9,9 +9,10 @@ import javax.inject.Inject
 
 @InjectViewState
 class MainPresenter @Inject constructor(private val router: Router) : MvpPresenter<MainView>() {
+
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         Timber.d("perviy privew")
-        router.navigateTo(Screens.Companion.LoginScreen())
+        router.newRootScreen(Screens.LoginScreen())
     }
 }

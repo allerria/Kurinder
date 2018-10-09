@@ -22,6 +22,4 @@ class MainActivity : BaseActivity(), MainView {
     fun providePresenter(): MainPresenter {
         return presenter
     }
-
-
 }

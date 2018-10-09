@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Kurinder</string>
+    <string name="login_via_phone">ВОЙТИ С ПОМОЩЬЮ НОМЕРА ТЕЛЕФОНА</string>
+    <string name="privacy_police"><u>Политикой конфиденциальности</u></string>
+    <string name="terms_of_service"><u>Условиями обслуживания</u> и</string>
+    <string name="agreement_1">Осуществляя вход, вы</string>
+    <string name="agreement_2">выражаете согласие с нашими</string>
+    <string name="my_phone">Мой номер:</string>
+    <string name="continue_str">Продолжить</string>
+    <string name="phone_number">Тел. номер</string>
+    <string name="plus">+</string>
+    <string name="phone_error">Номер должен быть в формате +XXXXXXXXXXX</string>
+    <string name="oops">Упс! Что-то пошло не так</string>
+    <string name="success_send">Успешно!</string>
 </resources>
