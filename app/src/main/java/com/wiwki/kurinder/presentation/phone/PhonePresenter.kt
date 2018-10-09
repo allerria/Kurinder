@@ -25,7 +25,7 @@ class PhonePresenter @Inject constructor(
                 viewState.showSuccess()
                 viewState.stopLoadAnimation()
                 authInteractor.signInWithCredential(credential)
-                //router navigate to model fill view
+                router.navigateTo(Screens.ProfileCreateScreen())
             }
 
             override fun onVerificationFailed(p0: FirebaseException?) {

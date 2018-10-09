@@ -22,7 +22,8 @@ class AuthInteractor @Inject constructor() {
         return auth.signInWithCredential(credential)
     }
 
-    fun verifyPhone(phone: String, activity: BaseActivity, authCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks) {
+    fun verifyPhone(phone: String, activity: BaseActivity,
+                    authCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks) {
         phoneAuthProvider.verifyPhoneNumber(phone, TIMEOUT_IN_SECONDS, TimeUnit.SECONDS, activity, authCallbacks)
     }
 

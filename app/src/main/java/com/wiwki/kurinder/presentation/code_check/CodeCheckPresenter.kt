@@ -6,6 +6,7 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.wiwki.kurinder.domain.AuthInteractor
+import com.wiwki.kurinder.presentation.Screens
 import com.wiwki.kurinder.presentation.common.BaseActivity
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -36,7 +37,7 @@ class CodeCheckPresenter @Inject constructor(
         authInteractor.verifyCodeAndSignIn(verificationId, code).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 viewState.closeKeyboard()
-                //go nakher
+                router.navigateTo(Screens.ProfileCreateScreen())
             } else {
                 viewState.showErrorHint()
             }

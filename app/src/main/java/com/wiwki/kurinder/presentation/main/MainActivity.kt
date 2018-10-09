@@ -22,4 +22,12 @@ class MainActivity : BaseActivity(), MainView {
     fun providePresenter(): MainPresenter {
         return presenter
     }
+
+    override fun hideActionBar() {
+        supportActionBar?.hide()
+    }
+
+    override fun showActionBar() {
+        supportActionBar?.show()
+    }
 }

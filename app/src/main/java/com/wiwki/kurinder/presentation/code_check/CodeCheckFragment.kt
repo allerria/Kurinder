@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.wiwki.kurinder.R
+import com.wiwki.kurinder.presentation.Screens
 import com.wiwki.kurinder.presentation.common.BaseActivity
 import com.wiwki.kurinder.presentation.common.BaseFragment
 import kotlinx.android.synthetic.main.fragment_code_check.*
@@ -30,7 +31,7 @@ class CodeCheckFragment : BaseFragment(), CodeCheckView {
         }
     }
 
-    override val TAG: String = "CodeCheckFragment"
+    override val TAG: String = Screens.CODE_CHECK_SCREEN
     override val layoutRes: Int = R.layout.fragment_code_check
 
     private var phone: String = ""
@@ -54,16 +55,6 @@ class CodeCheckFragment : BaseFragment(), CodeCheckView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUI()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as BaseActivity?)?.supportActionBar?.hide()
-    }
-
-    override fun onPause() {
-        (activity as BaseActivity?)?.supportActionBar?.show()
-        super.onPause()
     }
 
     private fun initUI() {

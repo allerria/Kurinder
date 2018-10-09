@@ -3,7 +3,6 @@ package com.wiwki.kurinder.di
 import android.app.Application
 import com.wiwki.kurinder.app.KurinderApplication
 import com.wiwki.kurinder.di.modules.AppModule
-import com.wiwki.kurinder.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -20,9 +19,6 @@ interface AppComponent : AndroidInjector<KurinderApplication> {
     interface Builder {
         @BindsInstance
         fun application(application: Application): AppComponent.Builder
-
-        @BindsInstance
-        fun networkModule(networkModule: NetworkModule): AppComponent.Builder
 
         fun build(): AppComponent
     }
