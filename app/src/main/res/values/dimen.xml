@@ -4,8 +4,11 @@
     <dimen name="margin_vertical_small">8dp</dimen>
     <dimen name="margin_vertical_text">4dp</dimen>
     <dimen name="padding_vertical_medium">16dp</dimen>
+    <dimen name="padding_vertical_small">4dp</dimen>
     <dimen name="border_radius_large">40dp</dimen>
     <dimen name="padding_large">24dp</dimen>
     <dimen name="margin_vertical_large">24dp</dimen>
     <dimen name="text_size_large">28sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <dimen name="text_size_default">18sp</dimen>
 </resources>

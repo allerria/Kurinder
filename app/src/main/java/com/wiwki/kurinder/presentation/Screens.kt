@@ -19,11 +19,11 @@ object Screens {
         override fun getFragment(): Fragment = LoginFragment()
     }
 
-    class PhoneScreen: SupportAppScreen() {
+    class PhoneScreen : SupportAppScreen() {
         override fun getFragment(): Fragment = PhoneFragment()
     }
 
-    class CodeCheckScreen: SupportAppScreen() {
-        override fun getFragment(): Fragment = CodeCheckFragment()
+    class CodeCheckScreen(private val phone: String, private val verificationId: String) : SupportAppScreen() {
+        override fun getFragment(): Fragment = CodeCheckFragment.newInstance(phone, verificationId)
     }
 }

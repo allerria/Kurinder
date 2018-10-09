@@ -11,5 +11,8 @@
     <string name="plus">+</string>
     <string name="phone_error">Номер должен быть в формате +XXXXXXXXXXX</string>
     <string name="oops">Упс! Что-то пошло не так</string>
-    <string name="success_send">Успешно!</string>
+    <string name="success_send">Код успешно отправлен!</string>
+    <string name="my_code">Мой код:</string>
+    <string name="resend">ПОВТОРИТЬ ОТПРАВКУ</string>\
+    <string name="code_error">Неправильный код</string>
 </resources>

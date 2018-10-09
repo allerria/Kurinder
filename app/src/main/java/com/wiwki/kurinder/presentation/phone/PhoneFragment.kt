@@ -70,6 +70,11 @@ class PhoneFragment : BaseFragment(), PhoneView {
         Toast.makeText(context, R.string.success_send, Toast.LENGTH_LONG).show()
     }
 
+    override fun closeKeyboard() {
+        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(phone_et.windowToken, 0)
+    }
+
     private fun focusPhoneEditText() {
         phone_et.requestFocus()
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

@@ -11,4 +11,5 @@ interface PhoneView: MvpView {
     fun startLoadAnimation()
     fun stopLoadAnimation()
     fun showSuccess()
+    fun closeKeyboard()
 }

@@ -50,6 +50,7 @@ ext {
     coroutinesRetrofitAdapter = '1.0.0'
     coroutines = '0.30.1'
     spinKit = '1.1.0'
+    blockEditText = '0.0.7'
 }
 
 dependencies {
@@ -99,6 +100,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
 
     implementation "com.github.ybq:Android-SpinKit:$spinKit"
+
+    implementation "com.infideap.blockedittext:block-edittext:$blockEditText"
 }
 
 apply plugin: 'com.google.gms.google-services'

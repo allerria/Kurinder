@@ -5,4 +5,9 @@ import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface CodeCheckView: MvpView {}
+interface CodeCheckView: MvpView {
+    fun showSuccessSend()
+    fun showErrorSend()
+    fun showErrorHint()
+    fun closeKeyboard()
+}
