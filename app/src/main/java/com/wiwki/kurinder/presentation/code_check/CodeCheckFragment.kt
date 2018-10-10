@@ -90,6 +90,8 @@ class CodeCheckFragment : BaseFragment(), CodeCheckView {
         resend_tv.setOnClickListener {
             presenter.sendPhone(activity!! as BaseActivity, phone)
         }
+
+        showSuccessSend()
     }
 
     override fun showErrorSend() {

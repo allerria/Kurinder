@@ -4,6 +4,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.wiwki.kurinder.R
 import com.wiwki.kurinder.presentation.common.BaseActivity
+import com.wiwki.kurinder.presentation.common.BaseFragment
+import com.wiwki.kurinder.presentation.profile_create.ProfileCreateFragment
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import javax.inject.Inject
@@ -23,11 +25,12 @@ class MainActivity : BaseActivity(), MainView {
         return presenter
     }
 
-    override fun hideActionBar() {
-        supportActionBar?.hide()
-    }
-
-    override fun showActionBar() {
-        supportActionBar?.show()
+    override fun onBackPressed() {
+        val firstFragment = supportFragmentManager.fragments.firstOrNull()
+        if (firstFragment != null && firstFragment is ProfileCreateFragment) {
+            firstFragment.onBackPressed()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

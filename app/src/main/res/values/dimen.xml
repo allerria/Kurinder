@@ -11,4 +11,5 @@
     <dimen name="text_size_large">28sp</dimen>
     <dimen name="text_size_medium">20sp</dimen>
     <dimen name="text_size_default">18sp</dimen>
+    <dimen name="tab_indicator_height">6dp</dimen>
 </resources>

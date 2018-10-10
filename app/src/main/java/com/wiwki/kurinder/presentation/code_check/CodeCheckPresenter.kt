@@ -37,7 +37,7 @@ class CodeCheckPresenter @Inject constructor(
         authInteractor.verifyCodeAndSignIn(verificationId, code).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 viewState.closeKeyboard()
-                router.navigateTo(Screens.ProfileCreateScreen())
+                router.newRootScreen(Screens.ProfileCreateScreen())
             } else {
                 viewState.showErrorHint()
             }

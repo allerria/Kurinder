@@ -22,10 +22,9 @@ class PhonePresenter @Inject constructor(
     private val authCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks by lazy {
         object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-                viewState.showSuccess()
                 viewState.stopLoadAnimation()
                 authInteractor.signInWithCredential(credential)
-                router.navigateTo(Screens.ProfileCreateScreen())
+                router.newRootScreen(Screens.ProfileCreateScreen())
             }
 
             override fun onVerificationFailed(p0: FirebaseException?) {
@@ -34,7 +33,6 @@ class PhonePresenter @Inject constructor(
             }
 
             override fun onCodeSent(verificationId: String, p1: PhoneAuthProvider.ForceResendingToken?) {
-                viewState.showSuccess()
                 viewState.stopLoadAnimation()
                 router.navigateTo(Screens.CodeCheckScreen(phone, verificationId))
             }

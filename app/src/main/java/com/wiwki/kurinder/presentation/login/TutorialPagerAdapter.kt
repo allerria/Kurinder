@@ -15,9 +15,10 @@ class TutorialPagerAdapter(private val mContext: Context?) : PagerAdapter() {
     override fun instantiateItem(collection: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(mContext)
         val layout = inflater.inflate(R.layout.item_tutorial, collection, false) as ViewGroup
+        val tutorialPagerEnum = TutorialPagerEnum.values()[position]
         with(layout) {
-            tutorial_tv.text = TutorialPagerEnum.values()[position].text
-            tutorial_iv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.common_google_signin_btn_icon_dark))
+            tutorial_tv.text = context.getString(tutorialPagerEnum.titleResId)
+            tutorial_iv.setImageDrawable(ContextCompat.getDrawable(context, tutorialPagerEnum.imgResId))
         }
         collection.addView(layout)
         return layout

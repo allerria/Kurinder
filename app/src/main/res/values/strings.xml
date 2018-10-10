@@ -15,4 +15,17 @@
     <string name="my_code">Мой код:</string>
     <string name="resend">ПОВТОРИТЬ ОТПРАВКУ</string>\
     <string name="code_error">Неправильный код</string>
+
+    <string name="profile_name_title">Мое имя:</string>
+    <string name="profile_sex_title">Я:</string>
+    <string name="profile_desc_title">О себе:</string>
+    <string name="profile_birthdate_title">Я родился:</string>
+    <string name="profile_avatar_title">Мое лучшее фото:</string>
+
+    <string name="done">Завершить</string>
+    <string name="your_name">Ваше имя</string>
+    <string name="male">МУЖЧИНА</string>
+    <string name="female">ЖЕНЩИНА</string>
+    <string name="birthdate">Дата рождения</string>
+    <string name="about_me">Расскажите о себе</string>
 </resources>

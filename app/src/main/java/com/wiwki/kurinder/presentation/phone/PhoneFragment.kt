@@ -57,10 +57,6 @@ class PhoneFragment : BaseFragment(), PhoneView {
         spin_kit.visibility = View.GONE
     }
 
-    override fun showSuccess() {
-        Toast.makeText(context, R.string.success_send, Toast.LENGTH_LONG).show()
-    }
-
     override fun closeKeyboard() {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(phone_et.windowToken, 0)
