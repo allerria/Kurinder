@@ -18,9 +18,9 @@ class MainPresenter @Inject constructor(
         super.onFirstViewAttach()
         Timber.d("perviy privew")
         if (authInteractor.isLogin()) {
-            router.newRootScreen(Screens.ProfileCreateScreen())
+            router.newRootScreen(Screens.ProfileCreateScreen())//пойти на норм экран
         } else {
-            router.newRootScreen(Screens.LoginScreen()) //пойти на норм экран
+            router.newRootScreen(Screens.LoginScreen())
         }
     }
 }

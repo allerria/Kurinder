@@ -28,4 +28,6 @@
     <string name="female">ЖЕНЩИНА</string>
     <string name="birthdate">Дата рождения</string>
     <string name="about_me">Расскажите о себе</string>
+    <string name="field_empty">Поле не может быть пустым</string>
+    <string name="load_avatar">Выберите пожалуйста аватар</string>
 </resources>

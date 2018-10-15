@@ -33,12 +33,14 @@
 
         <RadioGroup
             android:id="@+id/profile_sex_rg"
+            android:checkedButton="@id/male_rb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
 
             <RadioButton
+                android:id="@+id/male_rb"
                 style="@style/ButtonText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,6 +52,7 @@
                 android:text="@string/male" />
 
             <RadioButton
+                android:id="@+id/female_rb"
                 style="@style/ButtonText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/birthdate"
-            android:inputType="date"
+            android:inputType="none"
+            android:focusable="false"
             android:visibility="gone" />
 
         <EditText
@@ -78,8 +82,8 @@
 
         <ImageView
             android:id="@+id/profile_avatar_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:visibility="gone" />
     </FrameLayout>

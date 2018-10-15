@@ -37,7 +37,6 @@ android {
 ext {
     dagger = '2.17'
     cicerone = '4.0.2'
-    retrofit = '2.4.0'
     timber = '4.7.1'
     adapterdelegates = '3.0.1'
     servicesLocation = '16.0.0'
@@ -47,10 +46,10 @@ ext {
     firebaseStorage = '16.0.3'
     firebaseAuth = '16.0.4'
     glide = '4.8.0'
-    coroutinesRetrofitAdapter = '1.0.0'
     coroutines = '0.30.1'
     spinKit = '1.1.0'
     blockEditText = '0.0.7'
+    datePicker = '1.0.6'
 }
 
 dependencies {
@@ -79,11 +78,6 @@ dependencies {
 
     implementation "ru.terrakok.cicerone:cicerone:$cicerone"
 
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
-
-    implementation "com.hannesdorfmann:adapterdelegates3:$adapterdelegates"
-
     implementation "com.google.android.gms:play-services-location:$servicesLocation"
 
     implementation "com.google.firebase:firebase-core:$firebaseCore"
@@ -94,14 +88,14 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide"
     kapt "com.github.bumptech.glide:compiler:$glide"
 
-    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:$coroutinesRetrofitAdapter"
-
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
 
     implementation "com.github.ybq:Android-SpinKit:$spinKit"
 
     implementation "com.infideap.blockedittext:block-edittext:$blockEditText"
+
+    implementation "com.github.drawers:SpinnerDatePicker:$datePicker"
 }
 
 apply plugin: 'com.google.gms.google-services'
