@@ -1,10 +1,10 @@
 package com.wiwki.kurinder.presentation.login
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 import com.wiwki.kurinder.R
 import com.wiwki.kurinder.util.TutorialPagerEnum

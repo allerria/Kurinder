@@ -1,11 +1,8 @@
 package com.wiwki.kurinder.presentation.profile_create
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -13,11 +10,10 @@ import com.wiwki.kurinder.R
 import com.wiwki.kurinder.presentation.Screens
 import com.wiwki.kurinder.presentation.common.BaseFragment
 import com.wiwki.kurinder.util.ProfileDetailEnum
-import kotlinx.android.synthetic.main.fragment_create_profile.*
 import timber.log.Timber
 import javax.inject.Inject
-import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
+import kotlinx.android.synthetic.main.fragment_create_profile.*
 
 
 class ProfileCreateFragment : BaseFragment(), ProfileCreateView {

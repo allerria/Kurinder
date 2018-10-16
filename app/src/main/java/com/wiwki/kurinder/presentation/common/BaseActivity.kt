@@ -1,8 +1,7 @@
 package com.wiwki.kurinder.presentation.common
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import com.arellomobile.mvp.MvpAppCompatActivity
+import androidx.fragment.app.Fragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -11,7 +10,7 @@ import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import javax.inject.Inject
 
-abstract class BaseActivity : MvpAppCompatActivity(), HasSupportFragmentInjector {
+abstract class BaseActivity : MvpAppCompatActivityX(), HasSupportFragmentInjector {
 
     protected abstract val layoutRes: Int
     protected abstract val navigator: Navigator

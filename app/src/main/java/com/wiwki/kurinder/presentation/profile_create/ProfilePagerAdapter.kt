@@ -1,13 +1,10 @@
 package com.wiwki.kurinder.presentation.profile_create
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
-import android.provider.MediaStore
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -18,7 +15,7 @@ import com.wiwki.kurinder.R
 import com.wiwki.kurinder.util.ProfileDetailEnum
 import kotlinx.android.synthetic.main.item_profile_create.view.*
 import java.util.*
-import android.support.v4.app.ActivityCompat.startActivityForResult
+import androidx.core.app.ActivityCompat.startActivityForResult
 
 class ProfilePagerAdapter(
         private val mContext: Context?,
