@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.tsongkha.spinnerdatepicker.DatePicker
 import com.tsongkha.spinnerdatepicker.DatePickerDialog
@@ -15,7 +16,6 @@ import com.wiwki.kurinder.R
 import com.wiwki.kurinder.util.ProfileDetailEnum
 import kotlinx.android.synthetic.main.item_profile_create.view.*
 import java.util.*
-import androidx.core.app.ActivityCompat.startActivityForResult
 
 class ProfilePagerAdapter(
         private val mContext: Context?,
@@ -28,6 +28,7 @@ class ProfilePagerAdapter(
     private val defaultDate: Calendar = Calendar.getInstance()
     private var tempAvatar: Bitmap? = null
     private lateinit var birthDayEditText: EditText
+    private lateinit var profileAvatarIV: ImageView
 
     override fun instantiateItem(collection: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(mContext)
@@ -78,6 +79,7 @@ class ProfilePagerAdapter(
                     profile_avatar_iv.setOnClickListener {
                         callbackPickAvatar()
                     }
+                    profileAvatarIV = profile_avatar_iv
                     profile_avatar_iv
                 }
             }.visibility = View.VISIBLE
@@ -136,5 +138,10 @@ class ProfilePagerAdapter(
 
     private fun showNoAvatarError(context: Context) {
         Toast.makeText(context, context.getString(R.string.load_avatar), Toast.LENGTH_SHORT).show()
+    }
+
+    fun setAvatar(bitmap: Bitmap) {
+        tempAvatar = bitmap
+        profileAvatarIV.setImageBitmap(bitmap)
     }
 }

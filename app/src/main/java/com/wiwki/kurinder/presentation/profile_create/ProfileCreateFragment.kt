@@ -1,6 +1,8 @@
 package com.wiwki.kurinder.presentation.profile_create
 
+import android.Manifest
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -13,7 +15,14 @@ import com.wiwki.kurinder.util.ProfileDetailEnum
 import timber.log.Timber
 import javax.inject.Inject
 import androidx.appcompat.app.AlertDialog
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.fragment_create_profile.*
+import java.io.IOException
+import java.lang.RuntimeException
 
 
 class ProfileCreateFragment : BaseFragment(), ProfileCreateView {
@@ -23,6 +32,11 @@ class ProfileCreateFragment : BaseFragment(), ProfileCreateView {
 
     private val GALLERY = 1
     private val CAMERA = 2
+    private val DATA = "data"
+    private val vpAdapter by lazy {
+        ProfilePagerAdapter(context, this::nextProfilePage,
+                this::requestPermissionAndShowAvatarDialog)
+    }
 
     @Inject
     @InjectPresenter
@@ -38,15 +52,20 @@ class ProfileCreateFragment : BaseFragment(), ProfileCreateView {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Timber.d("sada")
-        //TODO saving avatar bitmap
+        data?.let {
+            val bitmap: Bitmap = when (requestCode) {
+                GALLERY -> MediaStore.Images.Media.getBitmap(activity?.contentResolver, it.data)
+                CAMERA -> it.extras.get(DATA) as Bitmap
+                else -> throw RuntimeException("not expected requestCode")
+            }
+            vpAdapter.setAvatar(bitmap)
+        }
         super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun initUI() {
-        profile_vp.adapter = ProfilePagerAdapter(context, this::nextProfilePage, this::showPictureDialog)
-        profile_vp.adapter?.let {
-            profile_vp.offscreenPageLimit = it.count
-        }
+        profile_vp.adapter = vpAdapter
+        profile_vp.offscreenPageLimit = vpAdapter.count
         profile_tl.setupWithViewPager(profile_vp)
     }
 
@@ -68,14 +87,12 @@ class ProfileCreateFragment : BaseFragment(), ProfileCreateView {
 //                presenter.loadAndSetImageUrl(data as Bitmap)
 //            }
 //        }
-        profile_vp.adapter?.let {
-            if (profile_vp.currentItem == it.count - 1) {
-                return
-            }
-            profile_vp.getChildAt(profile_vp.currentItem).visibility = View.GONE
-            profile_vp.currentItem++
-            profile_vp.getChildAt(profile_vp.currentItem).visibility = View.VISIBLE
+        if (profile_vp.currentItem == vpAdapter.count - 1) {
+            return
         }
+        profile_vp.getChildAt(profile_vp.currentItem).visibility = View.GONE
+        profile_vp.currentItem++
+        profile_vp.getChildAt(profile_vp.currentItem).visibility = View.VISIBLE
     }
 
     fun onBackPressed() {
@@ -86,6 +103,20 @@ class ProfileCreateFragment : BaseFragment(), ProfileCreateView {
             profile_vp.currentItem--
             profile_vp.getChildAt(profile_vp.currentItem).visibility = View.VISIBLE
         }
+    }
+
+    private fun requestPermissionAndShowAvatarDialog() {
+        Dexter.withActivity(activity)
+                .withPermissions(listOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE))
+                .withListener(object : MultiplePermissionsListener {
+                    override fun onPermissionRationaleShouldBeShown(permissions: MutableList<PermissionRequest>?, token: PermissionToken?) {
+                        token?.continuePermissionRequest()
+                    }
+
+                    override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                        showPictureDialog()
+                    }
+                }).check()
     }
 
     private fun showPictureDialog() {
@@ -109,8 +140,6 @@ class ProfileCreateFragment : BaseFragment(), ProfileCreateView {
 
     private fun takePhotoFromCamera() {
         val intent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
-
-        //TODO request camera permission
-        //startActivityForResult(intent, CAMERA)
+        startActivityForResult(intent, CAMERA)
     }
 }
