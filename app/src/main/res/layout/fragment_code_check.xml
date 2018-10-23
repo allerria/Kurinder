@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_large">
+
+    <TextView
+        android:id="@+id/my_code_tv"
+        style="@style/LargeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/my_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:paddingTop="@dimen/padding_vertical_small"
+        android:paddingBottom="@dimen/padding_vertical_small"
+        android:text="@string/app_name"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/my_code_tv" />
+
+    <TextView
+        android:id="@+id/resend_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_large"
+        android:foreground="?selectableItemBackground"
+        android:paddingTop="@dimen/padding_vertical_small"
+        android:paddingBottom="@dimen/padding_vertical_small"
+        android:text="@string/resend"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/phone_tv"
+        app:layout_constraintTop_toTopOf="@id/phone_tv" />
+
+    <com.infideap.blockedittext.BlockEditText
+        android:id="@+id/code_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bet_defaultLength="1"
+        app:bet_inputType="Integer"
+        app:bet_numberOfBlock="6"
+        app:bet_text=""
+        app:bet_textSize="@dimen/text_size_medium"
+        app:layout_constraintTop_toBottomOf="@id/phone_tv" />
+
+    <TextView
+        android:id="@+id/submit_code_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:background="@drawable/border_radius"
+        android:foreground="?selectableItemBackground"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_vertical_medium"
+        android:paddingBottom="@dimen/padding_vertical_medium"
+        android:text="@string/continue_str"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/code_et" />
+</androidx.constraintlayout.widget.ConstraintLayout>

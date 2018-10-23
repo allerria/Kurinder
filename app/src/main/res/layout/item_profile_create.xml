@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/profile_create_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:text="@android:string/cut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/profile_detail_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_large"
+        app:layout_constraintBottom_toTopOf="@id/profile_done_tv"
+        app:layout_constraintTop_toBottomOf="@id/profile_create_tv">
+
+        <EditText
+            android:id="@+id/profile_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/your_name"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <RadioGroup
+            android:id="@+id/profile_sex_rg"
+            android:checkedButton="@id/male_rb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/male_rb"
+                style="@style/ButtonText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_vertical_small"
+                android:background="@drawable/sex_radio_button_background"
+                android:button="@android:color/transparent"
+                android:paddingTop="@dimen/padding_vertical_medium"
+                android:paddingBottom="@dimen/padding_vertical_medium"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/female_rb"
+                style="@style/ButtonText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sex_radio_button_background"
+                android:button="@android:color/transparent"
+                android:paddingTop="@dimen/padding_vertical_medium"
+                android:paddingBottom="@dimen/padding_vertical_medium"
+                android:text="@string/female" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/profile_birthdate_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/birthdate"
+            android:inputType="none"
+            android:focusable="false"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/profile_desc_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/about_me"
+            android:inputType="text"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/profile_avatar_iv"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/profile_done_tv"
+        style="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_large"
+        android:layout_marginEnd="@dimen/padding_large"
+        android:layout_marginBottom="@dimen/margin_vertical_large"
+        android:background="@drawable/border_radius"
+        android:foreground="?selectableItemBackground"
+        android:paddingTop="@dimen/padding_vertical_medium"
+        android:paddingBottom="@dimen/padding_vertical_medium"
+        android:text="@string/continue_str"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
