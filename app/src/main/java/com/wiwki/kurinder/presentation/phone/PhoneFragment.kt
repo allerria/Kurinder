@@ -2,7 +2,6 @@ package com.wiwki.kurinder.presentation.phone
 
 import android.content.Context
 import android.os.Bundle
-import androidx.core.content.ContextCompat.getSystemService
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -49,12 +48,12 @@ class PhoneFragment : BaseFragment(), PhoneView {
 
     override fun startLoadAnimation() {
         phone_cl.visibility = View.GONE
-        spin_kit.visibility = View.VISIBLE
+        phone_load_anim.visibility = View.VISIBLE
     }
 
     override fun stopLoadAnimation() {
         phone_cl.visibility = View.VISIBLE
-        spin_kit.visibility = View.GONE
+        phone_load_anim.visibility = View.GONE
     }
 
     override fun closeKeyboard() {

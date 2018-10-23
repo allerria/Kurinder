@@ -32,4 +32,6 @@ class AuthInteractor @Inject constructor() {
     }
 
     fun isLogin(): Boolean = auth.currentUser != null
+
+    fun getId(): String = auth.uid!!
 }

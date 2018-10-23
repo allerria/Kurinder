@@ -91,28 +91,28 @@ class ProfilePagerAdapter(
             tempData = when (profileDetailEnum) {
                 ProfileDetailEnum.NAME ->
                     if (profile_name_et.text.isNotEmpty()) {
-                        profile_name_et.text
+                        profile_name_et.text.toString()
                     } else {
                         profile_name_et.error = context.getString(R.string.field_empty)
                         null
                     }
                 ProfileDetailEnum.SEX -> male_rb.isChecked
                 ProfileDetailEnum.BIRTHDATE -> if (tempDate != null) {
-                    tempDate
+                    tempDate!!.time
                 } else {
                     profile_birthdate_et.error = context.getString(R.string.field_empty)
                     null
                 }
                 ProfileDetailEnum.DESCRIPTION ->
                     if (profile_desc_et.text.isNotEmpty()) {
-                        profile_desc_et.text
+                        profile_desc_et.text.toString()
                     } else {
                         profile_desc_et.error = context.getString(R.string.field_empty)
                         null
                     }
                 ProfileDetailEnum.AVATAR ->
                     if (tempAvatar != null) {
-
+                        tempAvatar
                     } else {
                         showNoAvatarError(context)
                         null

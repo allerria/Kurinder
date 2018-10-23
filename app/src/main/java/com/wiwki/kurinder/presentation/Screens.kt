@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.Fragment
 import com.wiwki.kurinder.presentation.code_check.CodeCheckFragment
+import com.wiwki.kurinder.presentation.feed.FeedFragment
 import com.wiwki.kurinder.presentation.login.LoginFragment
 import com.wiwki.kurinder.presentation.main.MainActivity
 import com.wiwki.kurinder.presentation.phone.PhoneFragment
@@ -16,6 +17,7 @@ object Screens {
     const val LOGIN_SCREEN = "loginFragment"
     const val PHONE_SCREEN = "phoneFragment"
     const val PROFILE_CREATE_SCREEN = "profileCreateFragment"
+    const val FEED_SCREEN = "feedFragment"
 
     class MainScreen : SupportAppScreenX() {
         override fun getActivityIntent(context: Context?): Intent = Intent(context, MainActivity::class.java)
@@ -35,5 +37,9 @@ object Screens {
 
     class ProfileCreateScreen() : SupportAppScreenX() {
         override fun getFragment(): Fragment = ProfileCreateFragment()
+    }
+
+    class FeedScreen(): SupportAppScreenX() {
+        override fun getFragment(): Fragment = FeedFragment()
     }
 }
